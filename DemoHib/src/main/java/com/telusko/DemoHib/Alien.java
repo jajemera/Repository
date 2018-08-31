@@ -1,14 +1,21 @@
 package com.telusko.DemoHib;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity(name="alien_table")
 public class Alien {
 	
 	@Id
 	private int aid;
-	private String aname;
+	
+	// Transient annotation will not include field
+	private AlienName aname;
+	
+	// diff table column name
+	@Column(name="alien_color")
 	private String color;
 	
 	/**
@@ -23,16 +30,17 @@ public class Alien {
 	public void setAid(int aid) {
 		this.aid = aid;
 	}
+	
 	/**
 	 * @return the aname
 	 */
-	public String getAname() {
+	public AlienName getAname() {
 		return aname;
 	}
 	/**
 	 * @param aname the aname to set
 	 */
-	public void setAname(String aname) {
+	public void setAname(AlienName aname) {
 		this.aname = aname;
 	}
 	/**
@@ -47,4 +55,14 @@ public class Alien {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Alien [aid=" + aid + ", aname=" + aname + ", color=" + color + "]";
+	}
+	
+	
 }
