@@ -3,7 +3,7 @@ package com.telusko.DemoHib;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="alien_table")
 public class Alien {
 	
 	@Id
